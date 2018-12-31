@@ -177,7 +177,7 @@ public class admin_home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminsettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettingsActionPerformed
-         new admin_settings().setVisible(true);
+        setVisible(false); new admin_settings().setVisible(true);
     }//GEN-LAST:event_adminsettingsActionPerformed
 
     private void adminsettings1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettings1ActionPerformed
@@ -185,7 +185,7 @@ public class admin_home extends javax.swing.JFrame {
     }//GEN-LAST:event_adminsettings1ActionPerformed
 
     private void adminsettings2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettings2ActionPerformed
-        setVisible(false);new Attendance().setVisible(true);
+        setVisible(false);new student_teacher_attendance().setVisible(true);
     }//GEN-LAST:event_adminsettings2ActionPerformed
 
     private void adminsettings3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettings3ActionPerformed

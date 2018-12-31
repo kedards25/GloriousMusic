@@ -23,7 +23,13 @@ public class key_fields extends javax.swing.JFrame {
      * Creates new form key_fields
      */
     public key_fields() {
+        try {
+            cn=cm.getConnection();
+        } catch (Exception e) {
+            System.out.println("edit_user_details"+e);
+        }
         initComponents();
+       // initComponents();
     }
 
     /**
@@ -165,8 +171,13 @@ public class key_fields extends javax.swing.JFrame {
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
         try {
+            String typ,grd;
+            typ=type.getText();
+            grd=GRADE.getText();
+            String fees=fee.getText();
             Statement st=cn.createStatement();
-            String q="insert into KeyField values('','','')";
+            String q="insert into KeyField values('"+typ+"','"+grd+"',"+fees+")";
+           // jLabel7.setText(q);
             int cnt=st.executeUpdate(q);
             if (cnt>0) {
                 jLabel7.setText("Key Fields saved successfully");

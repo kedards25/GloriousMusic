@@ -71,7 +71,7 @@ public class set_modules extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("SET KEY FIELDS");
+        jLabel2.setText("SET MODULE");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -266,7 +266,7 @@ public class set_modules extends javax.swing.JFrame {
     }//GEN-LAST:event_save2ActionPerformed
 
     private void save4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save4ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);new module_add_update().setVisible(true);
     }//GEN-LAST:event_save4ActionPerformed
 
     private void examActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examActionPerformed

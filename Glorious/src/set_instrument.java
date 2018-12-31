@@ -218,7 +218,7 @@ public class set_instrument extends javax.swing.JFrame {
     }//GEN-LAST:event_save2ActionPerformed
 
     private void save5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save5ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);new admin_settings().setVisible(false);
     }//GEN-LAST:event_save5ActionPerformed
 
     /**

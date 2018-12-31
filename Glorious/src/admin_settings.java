@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -150,11 +155,19 @@ public class admin_settings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminsettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettingsActionPerformed
-        setVisible(false);new set_key_fields().setVisible(true);
+        try {
+            setVisible(false);new set_key_fields().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admin_settings.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_adminsettingsActionPerformed
 
     private void adminsettings1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettings1ActionPerformed
-        setVisible(false);new edit_user_details().setVisible(true);
+        setVisible(false);try {
+            new edit_user_details().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admin_settings.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_adminsettings1ActionPerformed
 
     private void adminsettings2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminsettings2ActionPerformed

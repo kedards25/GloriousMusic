@@ -215,7 +215,12 @@ public class add_update extends javax.swing.JFrame {
     }//GEN-LAST:event_save1ActionPerformed
 
     private void save2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            setVisible(false);
+            new edit_user_details().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(add_update.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_save2ActionPerformed
 
     /**

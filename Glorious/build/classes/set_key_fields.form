@@ -61,22 +61,6 @@
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="type" min="-2" pref="72" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" pref="169" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel4" min="-2" pref="63" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="grade" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="search" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Component id="save1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Component id="save3" min="-2" max="-2" attributes="0"/>
@@ -86,6 +70,23 @@
                                   <Component id="save4" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane1" min="-2" pref="497" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="type" min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" pref="169" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel4" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="grade" min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="search" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -108,7 +109,7 @@
               <Component id="jLabel2" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="grade" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="type" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -137,7 +138,7 @@
                   <Component id="type3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="type4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="save5" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
           </Group>
@@ -172,7 +173,7 @@
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="TYPE"/>
+        <Property name="text" type="java.lang.String" value="INSTRUMENT TYPE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="grade">

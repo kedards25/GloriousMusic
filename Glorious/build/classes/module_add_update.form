@@ -68,12 +68,17 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="sve" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="back" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="home" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="back" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="home" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -114,7 +119,9 @@
                   <Component id="home" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="back" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -228,6 +235,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
     </Component>
   </SubComponents>
 </Form>

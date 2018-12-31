@@ -1,20 +1,39 @@
+
+import Shared.ConnectionManager;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.proteanit.sql.DbUtils;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author vinay sawant
  */
 public class set_key_fields extends javax.swing.JFrame {
 
+    Connection cn = null;
+    ConnectionManager cm = new ConnectionManager();
+
     /**
      * Creates new form set_key_fields
+     * @throws java.sql.SQLException
      */
-    public set_key_fields() {
+    public set_key_fields() throws SQLException {
+        try {
+            cn = cm.getConnection();
+        } catch (Exception e) {
+            System.out.println("edit_user_details" + e);
+        }
         initComponents();
+        getValues();
     }
 
     /**
@@ -62,7 +81,7 @@ public class set_key_fields extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("TYPE");
+        jLabel3.setText("INSTRUMENT TYPE");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -193,19 +212,6 @@ public class set_key_fields extends javax.swing.JFrame {
                                         .addComponent(type2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(80, 80, 80)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(grade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(search))))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(save1)
                                     .addGap(46, 46, 46)
                                     .addComponent(save3)
@@ -213,7 +219,21 @@ public class set_key_fields extends javax.swing.JFrame {
                                     .addComponent(save2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(save4))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(grade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(search)))))
                 .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(350, 350, 350)
@@ -229,7 +249,7 @@ public class set_key_fields extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(grade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,7 +274,7 @@ public class set_key_fields extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(save5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
         );
@@ -263,27 +283,43 @@ public class set_key_fields extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        // TODO add your handling code here:
+        try {
+            PreparedStatement ps = cn.prepareStatement(" Select * from keyfield where instrumenttype='"+type.getText()+"' or grade='"+grade.getText()+"'");
+            ResultSet rs = ps.executeQuery();
+            
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(set_key_fields.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_searchActionPerformed
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
-        // TODO add your handling code here:
+    setVisible(false);
+    new key_fields().setVisible(true);
     }//GEN-LAST:event_save1ActionPerformed
 
     private void save2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save2ActionPerformed
+    
         // TODO add your handling code here:
     }//GEN-LAST:event_save2ActionPerformed
 
     private void save3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save3ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        try {
+            new update_instrument().setVisible(true);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(set_key_fields.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_save3ActionPerformed
 
     private void save4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save4ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);new admin_settings().setVisible(true);
     }//GEN-LAST:event_save4ActionPerformed
 
     private void save5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save5ActionPerformed
-         setVisible(false);new key_fields().setVisible(true);
+        setVisible(false);
+        new key_fields().setVisible(true);
     }//GEN-LAST:event_save5ActionPerformed
 
     private void type4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type4ActionPerformed
@@ -320,7 +356,11 @@ public class set_key_fields extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new set_key_fields().setVisible(true);
+                try {
+                    new set_key_fields().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(set_key_fields.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -349,4 +389,13 @@ public class set_key_fields extends javax.swing.JFrame {
     private javax.swing.JTextField type3;
     private javax.swing.JTextField type4;
     // End of variables declaration//GEN-END:variables
+
+    private void getValues() throws SQLException {
+
+        PreparedStatement ps = cn.prepareStatement(" Select * from keyfield");
+        ResultSet rs = ps.executeQuery();
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+
+    }
+
 }

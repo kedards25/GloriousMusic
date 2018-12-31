@@ -1,19 +1,35 @@
+
+import Shared.ConnectionManager;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author vinay sawant
  */
 public class module_add_update extends javax.swing.JFrame {
 
+    Connection cn = null;
+
+    ConnectionManager cm = new ConnectionManager();
+
     /**
      * Creates new form module_add_update
      */
     public module_add_update() {
+        try {
+            cn=cm.getConnection();
+        } catch (Exception e) {
+            System.out.println("module_add_update"+e);
+        }
         initComponents();
     }
 
@@ -41,6 +57,7 @@ public class module_add_update extends javax.swing.JFrame {
         sve = new javax.swing.JButton();
         back = new javax.swing.JButton();
         home = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,9 +155,12 @@ public class module_add_update extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sve)
                                 .addGap(46, 46, 46)
-                                .addComponent(back)
-                                .addGap(33, 33, 33)
-                                .addComponent(home)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(back)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(home)))))))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -171,22 +191,37 @@ public class module_add_update extends javax.swing.JFrame {
                     .addComponent(sve)
                     .addComponent(home)
                     .addComponent(back))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel4)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void sveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sveActionPerformed
-        // TODO add your handling code here:
+        try {
+            String q="insert into tbl_module values('"+module.getText()+"','"+module_name.getText()+"','"+type.getText()+"','I')";
+            Statement st=cn.createStatement();
+            int cnt=st.executeUpdate(q);
+            if (cnt>0) {
+                jLabel4.setText("Module created successfully");
+            }
+            else
+            {
+                jLabel4.setText("Module creation failed");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(module_add_update.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sveActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);new set_modules().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);new admin_settings().setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
 
     /**
@@ -234,6 +269,7 @@ public class module_add_update extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField module;
     private javax.swing.JLabel moduleL;
     private javax.swing.JLabel moduleL1;
